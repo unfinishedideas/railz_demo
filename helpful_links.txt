@@ -9,3 +9,6 @@ https://developers.google.com/maps/documentation/javascript/marker-clustering
 
 Customizing markers:
 https://developers.google.com/maps/documentation/javascript/markers
+
+
+rails credentials:edit
