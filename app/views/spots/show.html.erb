@@ -11,11 +11,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-
-  <%= @spot.name %>
-</p>
+<h1><%= @spot.name %></h1>
 
 <strong>Current Weather Conditions:</strong>
 <%= @response["weather"][0]["description"].titleize %>,

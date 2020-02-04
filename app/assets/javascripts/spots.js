@@ -8,19 +8,9 @@ class Spot {
     this.lon = lon;
   }
 }
-
-// Replace with API call eventually
-// spots_list = [
-//   new Spot('spot1', 45.5051, -122.6750),
-//   new Spot('spot2', 60, -50),
-//   new Spot('spot3', 80, 150),
-//   new Spot('spot4', -50, 150)
-// ]
-
+// If troubles: consider trying lng vs lon
 // World map - wildcard!
 function initBigMap() {
-  // console.log(spots_list_raw);
-  // debugger
   var spots_list = JSON.parse(spots_list_raw)
 
   test_spot = spots_list[0];
@@ -54,7 +44,6 @@ function initBigMap() {
 }
 
 
-// If troubles: consider trying lng vs lon
 // Show individual map
 function initMap(lat, lon) {
   var myCoords = new google.maps.LatLng(lat, lon);
