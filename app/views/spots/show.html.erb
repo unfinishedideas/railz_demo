@@ -33,7 +33,9 @@
   <strong>Longitude:</strong>
   <%= @spot.lon %>
 </p>
-<p>
+  <% if @spot.spot_img.attached? %>
+    <%= image_tag @spot.spot_img %>
+  <% end %>
 
 <%= link_to 'Edit', edit_spot_path(@spot) %>
 <%= link_to 'Back', spots_path %>
