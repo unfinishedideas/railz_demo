@@ -14,7 +14,7 @@
 <p>
   <strong>Name:</strong>
 
-  <%= @place.name %>
+  <%= @spot.name %>
 </p>
 
   <strong>Current Weather Conditions:</strong>
@@ -29,14 +29,13 @@
 
 <p>
   <strong>Latitude:</strong>
-  <%= @place.lat %> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  <%= @spot.lat %> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
   <strong>Longitude:</strong>
-  <%= @place.lon %>
+  <%= @spot.lon %>
 </p>
 <p>
 
-<%= link_to 'Edit', edit_place_path(@place) %>
-<%= link_to 'Back', places_path %>
+<%= link_to 'Edit', edit_spot_path(@spot) %>
+<%= link_to 'Back', spots_path %>
 
-</div>
-
+<!-- </div> -->

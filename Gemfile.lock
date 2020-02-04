@@ -192,11 +192,8 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
   coffee-rails (~> 4.2)
-
   dotenv-rails
-
   faker
-
   httparty
   jbuilder (~> 2.5)
   knock

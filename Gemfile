@@ -29,7 +29,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'httparty'
 
 gem 'bcrypt', '~> 3.1.7'
-gem 'pry'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -40,7 +39,6 @@ gem 'pry'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'knock'
-gem 'httparty'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
