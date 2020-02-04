@@ -1,4 +1,5 @@
 require 'pry'
+
 class SpotsController < ApplicationController
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
 
@@ -8,13 +9,13 @@ class SpotsController < ApplicationController
     # json = HTTParty.post('http://localhost:3000/authenticate', body: {email: 'admin@railz.com', password: '666'})
     # binding.pry
     json = HTTParty.get("http://localhost:3000/spots" )
-
     @spots = Spot.all
   end
 
   # GET /spots/1
   # GET /spots/1.json
   def show
+    @response = HTTParty.get("https://api.openweathermap.org/data/2.5/weather?lat=#{@spot.lat}&lon=#{@spot.lon}&appid=#{Rails.application.credentials.weather_api_key}")
   end
 
   # GET /spots/new

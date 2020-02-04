@@ -5,6 +5,7 @@
 </script>
 <% end %>
 
+
 <%= form_with(model: spot, local: true) do |form| %>
 <% if spot.errors.any? %>
 <div id="error_explanation">
@@ -12,6 +13,7 @@
 
   <ul>
     <% spot.errors.full_messages.each do |message| %>
+
     <li><%= message %></li>
     <% end %>
   </ul>

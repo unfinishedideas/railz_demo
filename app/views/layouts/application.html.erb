@@ -5,6 +5,10 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
+  <%= stylesheet_link_tag 'application',
+     'https://fonts.googleapis.com/css?family=Indie+Flower|Permanent+Marker|Righteous|Shadows+Into+Light|Tajawal&display=swap',
+      media: 'all', 'data-turbolinks-track' => true %>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key='+Rails.application.credentials.google_maps_api_key %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -12,6 +16,11 @@
 </head>
 
 <body>
+  <div class="titleBanner">
+
+  <h1>Railz</h1>
+  <h3>Killer Sk8 Spotz</h3>
+</div>
   <div class="login">
     <form action="/spots" method="post">
       <label for="email">Email</label>
