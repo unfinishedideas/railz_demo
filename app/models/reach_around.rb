@@ -1,0 +1,2 @@
+class ReachAround < ApplicationRecord
+end

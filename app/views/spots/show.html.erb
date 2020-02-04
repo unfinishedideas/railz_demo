@@ -2,7 +2,7 @@
 <meta name='turbolinks-visit-control' content='reload'>
 <script>
   document.addEventListener("DOMContentLoaded", function(){
-    initMap(<%=@place.lat%>, <%=@place.lon%>)
+    initMap(<%=@spot.lat%>, <%=@spot.lon%>)
   });
 </script>
 <% end %>
@@ -11,22 +11,22 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @place.name %>
+  <%= @spot.name %>
 </p>
 
 <p>
   <strong>Lat:</strong>
-  <%= @place.lat %>
+  <%= @spot.lat %>
 </p>
 
 <p>
   <strong>Lon:</strong>
-  <%= @place.lon %>
+  <%= @spot.lon %>
 </p>
 
 <p>
   <div id="map"></div>
 </p>
 
-<%= link_to 'Edit', edit_place_path(@place) %> |
-<%= link_to 'Back', places_path %>
+<%= link_to 'Edit', edit_spot_path(@spot) %> |
+<%= link_to 'Back', spots_path %>
