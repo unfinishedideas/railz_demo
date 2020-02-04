@@ -7,10 +7,11 @@ class SpotsController < ApplicationController
   # GET /spots.json
   def index
     # json = HTTParty.post('http://localhost:3000/authenticate', body: {email: 'admin@railz.com', password: '666'})
+    # Idea: for the list of spots to display: find the 10 closest to your location
     @spots = []
     Spot.destroy_all
-    @json = HTTParty.get("http://localhost:3000/spots" )
-    @json.each do |spot|
+    spots_json = HTTParty.get("http://localhost:3000/spots" )
+    spots_json.each do |spot|
       spot = Spot.create!({
         :name => spot.fetch('name'),
         :lat => spot.fetch('lat'),
@@ -32,6 +33,14 @@ class SpotsController < ApplicationController
     # GET /spots/1
     # GET /spots/1.json
     def show
+      reviews_json = HTTParty.get("http://localhost:3000/reviews" )
+      @reviews = []
+      reviews_json.each do |review|
+        if review.fetch("spot_id").to_i === params[:id].to_i
+          @reviews.push(review)
+          puts 'review pushed'
+        end
+      end
       @response = HTTParty.get("https://api.openweathermap.org/data/2.5/weather?lat=#{@spot.lat}&lon=#{@spot.lon}&appid=#{Rails.application.credentials.weather_api_key}")
     end
 

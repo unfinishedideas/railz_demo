@@ -12,3 +12,6 @@ https://developers.google.com/maps/documentation/javascript/markers
 
 
 rails credentials:edit
+
+Geolocation - check out locationbias - circular
+https://developers.google.com/places/web-service/search
