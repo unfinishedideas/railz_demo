@@ -1,4 +1,7 @@
 class Weather < ApplicationRecord
+  def get_weather(lat, lon)
+    response = HTTParty.get("https://api.openweathermap.org/data/2.5/weather?lat=#{lat}&lon=#{lon}&appid=#{Rails.application.credentials.weather_api_key}")
+  end
 end
 # class Weather
 #   def initialize(lat, lon)

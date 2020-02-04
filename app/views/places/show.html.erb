@@ -27,8 +27,14 @@
 <p>
   <div id="map"></div>
 </p>
+
 <div id="weather">
-  
+    <h3> Weather Conditions:
+      <%= @response["weather"][0]["main"] %>
+      <%= @response["weather"][0]["description"] %>
+      <%= @response["main"]["temp"] %>
+      </h3>
 </div>
+
 <%= link_to 'Edit', edit_place_path(@place) %> |
 <%= link_to 'Back', places_path %>
