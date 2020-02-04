@@ -72,15 +72,15 @@ function initMap(lat, lon) {
 
 // Edit individual marker / map
 function initMap2() {
-    var lat = document.getElementById('place_lat').value;
-    var lng = document.getElementById('place_lon').value;
+    var lat = document.getElementById('spot_lat').value;
+    var lng = document.getElementById('spot_lon').value;
 
     // if not defined create default position
     if (!lat || !lng){
         lat=51.5;
         lng=-0.125;
-        document.getElementById('place_lat').value = lat;
-        document.getElementById('place_lon').value = lng;
+        document.getElementById('spot_lat').value = lat;
+        document.getElementById('spot_lon').value = lng;
     }
     var myCoords = new google.maps.LatLng(lat, lng);
     var mapOptions = {
@@ -96,22 +96,22 @@ function initMap2() {
     });
     // refresh marker position and recenter map on marker
     function refreshMarker(){
-        var lat = document.getElementById('place_lat').value;
-        var lng = document.getElementById('place_lon').value;
+        var lat = document.getElementById('spot_lat').value;
+        var lng = document.getElementById('spot_lon').value;
         var myCoords = new google.maps.LatLng(lat, lng);
         marker.setPosition(myCoords);
         map.setCenter(marker.getPosition());
     }
     // when input values change call refreshMarker
-    document.getElementById('place_lat').onchange = refreshMarker;
-    document.getElementById('place_lon').onchange = refreshMarker;
+    document.getElementById('spot_lat').onchange = refreshMarker;
+    document.getElementById('spot_lon').onchange = refreshMarker;
     // when marker is dragged update input values
     marker.addListener('drag', function() {
         latlng = marker.getPosition();
         newlat=(Math.round(latlng.lat()*1000000))/1000000;
         newlng=(Math.round(latlng.lng()*1000000))/1000000;
-        document.getElementById('place_lat').value = newlat;
-        document.getElementById('place_lon').value = newlng;
+        document.getElementById('spot_lat').value = newlat;
+        document.getElementById('spot_lon').value = newlng;
     });
     // When drag ends, center (pan) the map on the marker position
     marker.addListener('dragend', function() {
