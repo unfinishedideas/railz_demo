@@ -32,9 +32,10 @@
     <h3> Weather Conditions:
       <%= @response["weather"][0]["main"] %>
       <%= @response["weather"][0]["description"] %>
-      <%= @response["main"]["temp"] %>
+      <% temp_c = (((@response["main"]["temp"] - 273.15) * (9/5)) + 32) %>
+      <%= temp_c.round %> °F
       </h3>
 </div>
 
-<%= link_to 'Edit', edit_place_path(@place) %> |
+<%= link_to 'Edit', edit_place_path(@place) %>
 <%= link_to 'Back', places_path %>

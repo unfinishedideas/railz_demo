@@ -1,6 +1,4 @@
 require 'pry'
-# require("./app/assets/javascripts/weather")
-require 'weather'
 
 class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
@@ -15,12 +13,7 @@ class PlacesController < ApplicationController
   # GET /places/1.json
   def show
     @response = HTTParty.get("https://api.openweathermap.org/data/2.5/weather?lat=#{@place.lat}&lon=#{@place.lon}&appid=#{Rails.application.credentials.weather_api_key}")
-    # @weather = @place.get_weather(@place.lat, @place.lon)
   end
-
-  # def get_weather(lat, lon)
-  #   response = HTTParty.get("https://api.openweathermap.org/data/2.5/weather?lat=#{lat}&lon=#{lon}&appid=#{Rails.application.credentials.weather_api_key}")
-  # end
 
   # GET /places/new
   def new
