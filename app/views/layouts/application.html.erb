@@ -21,6 +21,15 @@
   <h1>Railz</h1>
   <h3>Killer Sk8 Spotz</h3>
 </div>
+  <div class="login">
+    <form action="/spots" method="post">
+      <label for="email">Email</label>
+      <input type="text" name="email">
+      <label for="password">password</label>
+      <input type="text" name="password">
+      <button type="submit" name="button">Submit</button>
+    </form>
+  </div>
   <%= yield %>
 </body>
 </html>

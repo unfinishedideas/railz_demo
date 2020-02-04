@@ -1,1 +1,2 @@
-json.partial! "places/place", place: @place
+json.partial! "spots/spot", spot: @spot
+

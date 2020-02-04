@@ -15,10 +15,15 @@ ActiveRecord::Schema.define(version: 2020_02_03_190230) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "places", force: :cascade do |t|
+  create_table "spots", force: :cascade do |t|
     t.string "name"
-    t.decimal "lat"
-    t.decimal "lon"
+    t.integer "lat"
+    t.integer "lon"
+    t.string "description"
+    t.string "features"
+    t.string "spot_type"
+    t.string "img"
+    t.integer "avg_rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

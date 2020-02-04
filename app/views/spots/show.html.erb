@@ -2,16 +2,18 @@
 <meta name='turbolinks-visit-control' content='reload'>
 <script>
   document.addEventListener("DOMContentLoaded", function(){
-    initMap(<%=@place.lat%>, <%=@place.lon%>)
+
+    initMap(<%=@spot.lat%>, <%=@spot.lon%>)
   });
 </script>
 <% end %>
-<div class="">
+
 
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
+
   <%= @place.name %>
 </p>
 
@@ -37,3 +39,4 @@
 <%= link_to 'Back', places_path %>
 
 </div>
+

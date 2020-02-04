@@ -6,6 +6,9 @@ class SpotsController < ApplicationController
   # GET /spots
   # GET /spots.json
   def index
+    # json = HTTParty.post('http://localhost:3000/authenticate', body: {email: 'admin@railz.com', password: '666'})
+    # binding.pry
+    json = HTTParty.get("http://localhost:3000/spots" )
     @spots = Spot.all
   end
 
