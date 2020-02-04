@@ -17,10 +17,10 @@
   <%= @spot.name %>
 </p>
 
-  <strong>Current Weather Conditions:</strong>
-  <%= @response["weather"][0]["description"].titleize %>,
-  <% temp_c = (((@response["main"]["temp"] - 273.15) * (9/5)) + 32) %>
-  <%= temp_c.round %> °F
+<strong>Current Weather Conditions:</strong>
+<%= @response["weather"][0]["description"].titleize %>,
+<% temp_c = (((@response["main"]["temp"] - 273.15) * (9/5)) + 32) %>
+<%= temp_c.round %> °F
 </p>
 
 <p>
@@ -35,7 +35,20 @@
 </p>
 <p>
 
-<%= link_to 'Edit', edit_spot_path(@spot) %>
-<%= link_to 'Back', spots_path %>
+  <%= link_to 'Edit', edit_spot_path(@spot) %>
+  <%= link_to 'Back', spots_path %>
 
-<!-- </div> -->
+  <% if @reviews.any? %>
+  <h3>Reviews</h3>
+  <ul>
+    <% @reviews.each do |review| %>
+    <li>
+      <h4><%= review.fetch("title") %></h4>
+      <h5>Heat level: <%= review.fetch("heat_lvl") %></h5>
+      <p><%= review.fetch("content") %></p>
+    </li>
+    <% end %>
+  </ul>
+  <% else %>
+  <h3>No reviews!</h3>
+  <% end %>

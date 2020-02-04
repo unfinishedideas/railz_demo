@@ -43,7 +43,7 @@ function initBigMap() {
       // label: spot.name,
       title: spot.name
     });
-    var contentString = `<div id="content"><h3>${spot.name}</h3><a href="https://en.wikipedia.org/wiki/Golden_Gate_Bridge">${spot.name} Link</a></p></div>`;
+    var contentString = `<div id="content"><h3>${spot.name}</h3><a href="/spots/${spot.id}">${spot.name} Link</a></p></div>`;
     var infowindow = new google.maps.InfoWindow({
       content: contentString
     });
