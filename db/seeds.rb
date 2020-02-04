@@ -16,7 +16,7 @@ Spot.destroy_all
     description: Faker::Space.distance_measurement + " from " +     Faker::Verb.unique.base.capitalize() + " Park",
     features: Faker::Construction.material + " " +   Faker::Appliance.equipment,
     spot_type: Faker::Movies::HitchhikersGuideToTheGalaxy.starship,
-    avg_rating:  Faker::Number.between(from: 1, to: 5),
+    # avg_rating:  Faker::Number.between(from: 1, to: 5),
     img: Faker::LoremFlickr.grayscale_image(size: "50x60")
     ))
   spots

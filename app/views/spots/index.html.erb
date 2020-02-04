@@ -2,6 +2,7 @@
 <meta name='turbolinks-visit-control' content='reload'>
 
     <script>
+    var spots_list_raw = '<%= @spots.to_json.html_safe %>';
     document.addEventListener("DOMContentLoaded", function(){
         initBigMap()
     });
@@ -11,6 +12,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Spots</h1>
+<p>
+  <div id="bigMap"></div>
+</p>
 
 <table>
   <thead>
@@ -39,8 +43,3 @@
 <br>
 
 <%= link_to 'New Spot', new_spot_path %>
-
-<p>
-<div id="bigMap"></div>
-</p>
-
