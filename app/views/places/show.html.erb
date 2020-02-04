@@ -6,6 +6,7 @@
   });
 </script>
 <% end %>
+<div class="">
 
 <p id="notice"><%= notice %></p>
 
@@ -14,28 +15,25 @@
   <%= @place.name %>
 </p>
 
-<p>
-  <strong>Lat:</strong>
-  <%= @place.lat %>
-</p>
-
-<p>
-  <strong>Lon:</strong>
-  <%= @place.lon %>
+  <strong>Current Weather Conditions:</strong>
+  <%= @response["weather"][0]["description"].titleize %>,
+  <% temp_c = (((@response["main"]["temp"] - 273.15) * (9/5)) + 32) %>
+  <%= temp_c.round %> °F
 </p>
 
 <p>
   <div id="map"></div>
 </p>
 
-<div id="weather">
-    <h3> Weather Conditions:
-      <%= @response["weather"][0]["main"] %>
-      <%= @response["weather"][0]["description"] %>
-      <% temp_c = (((@response["main"]["temp"] - 273.15) * (9/5)) + 32) %>
-      <%= temp_c.round %> °F
-      </h3>
-</div>
+<p>
+  <strong>Latitude:</strong>
+  <%= @place.lat %> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  <strong>Longitude:</strong>
+  <%= @place.lon %>
+</p>
+<p>
 
 <%= link_to 'Edit', edit_place_path(@place) %>
 <%= link_to 'Back', places_path %>
+
+</div>
