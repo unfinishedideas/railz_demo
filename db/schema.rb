@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_02_04_213041) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,13 +40,21 @@ ActiveRecord::Schema.define(version: 2020_02_04_213041) do
 
   create_table "spots", force: :cascade do |t|
     t.string "name"
-    t.integer "lat"
-    t.integer "lon"
+    t.float "lat"
+    t.float "lon"
     t.string "description"
     t.string "features"
     t.string "spot_type"
     t.string "img"
-    t.integer "avg_rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", id: :serial, force: :cascade do |t|
+    t.string "user_name"
+    t.string "email"
+    t.string "password_hash"
+    t.string "password_salt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

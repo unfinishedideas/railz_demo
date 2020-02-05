@@ -8,20 +8,12 @@ class Spot {
     this.lon = lon;
   }
 }
-
-// Replace with API call eventually
-temp_spots = [
-  new Spot('spot1', 45.5051, -122.6750),
-  new Spot('spot2', 60, -50),
-  new Spot('spot3', 80, 150),
-  new Spot('spot4', -50, 150)
-]
-
+// If troubles: consider trying lng vs lon
 // World map - wildcard!
-// Replace temp_spots with api call!
 function initBigMap() {
+  var spots_list = JSON.parse(spots_list_raw)
 
-  test_spot = temp_spots[0];
+  test_spot = spots_list[0];
 
   var myCoords = new google.maps.LatLng(test_spot.lat, test_spot.lon);
   var mapOptions = {
@@ -31,7 +23,7 @@ function initBigMap() {
 
   var map = new google.maps.Map(document.getElementById('bigMap'), mapOptions);
 
-  let spots = temp_spots
+  let spots = spots_list
 
   spots.forEach(function(spot) {
     coords = new google.maps.LatLng(spot.lat, spot.lon);
@@ -41,7 +33,7 @@ function initBigMap() {
       // label: spot.name,
       title: spot.name
     });
-    var contentString = `<div id="content"><h3>${spot.name}</h3><a href="https://en.wikipedia.org/wiki/Golden_Gate_Bridge">${spot.name} Link</a></p></div>`;
+    var contentString = `<div id="content"><h3>${spot.name}</h3><a href="/spots/${spot.id}">${spot.name} Link</a></p></div>`;
     var infowindow = new google.maps.InfoWindow({
       content: contentString
     });
@@ -52,8 +44,6 @@ function initBigMap() {
 }
 
 
-
-// If troubles: consider trying lng vs lon
 // Show individual map
 function initMap(lat, lon) {
   var myCoords = new google.maps.LatLng(lat, lon);
