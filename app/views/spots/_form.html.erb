@@ -26,11 +26,6 @@
 </div>
 
 <div class="field">
-  <%= form.label :description %>
-  <%= form.text_area :description %>
-</div>
-
-<div class="field">
   <%= form.label :lat %>
   <%= form.text_field :lat %>
 </div>
@@ -39,6 +34,22 @@
   <%= form.label :lon %>
   <%= form.text_field :lon %>
 </div>
+
+<div class="field">
+  <%= form.label :spot_type %>
+  <%= form.text_field :spot_type %>
+</div>
+
+<div class="field">
+  <%= form.label :description %>
+  <%= form.text_area :description %>
+</div>
+
+<div class="field">
+  <%= form.label :features %>
+  <%= form.text_field :features %>
+</div>
+
 
 <p>
   <div class="basic_map" id="map2"></div>

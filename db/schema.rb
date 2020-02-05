@@ -17,13 +17,12 @@ ActiveRecord::Schema.define(version: 2020_02_04_235645) do
 
   create_table "spots", force: :cascade do |t|
     t.string "name"
-    t.integer "lat"
-    t.integer "lon"
+    t.float "lat"
+    t.float "lon"
     t.string "description"
     t.string "features"
     t.string "spot_type"
     t.string "img"
-    t.integer "avg_rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
