@@ -91,7 +91,7 @@ class SpotsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def spot_params
-    params.require(:spot).permit(:name, :lat, :lon, :spot_type, :features, :img, :description, , spot_photos: [])
+    params.require(:spot).permit(:name, :lat, :lon, :spot_type, :features, :img, :description, spot_photos: [])
   end
 
   def get_spots
