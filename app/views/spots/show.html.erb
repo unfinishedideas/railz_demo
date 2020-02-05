@@ -20,7 +20,7 @@
 </p>
 
 <p>
-  <div id="map"></div>
+  <div class="basic_map" id="map"></div>
 </p>
 
 <p>
@@ -30,7 +30,20 @@
   <%= @spot.lon %>
 </p>
 <p>
+  <strong>Spot Type</strong>
+  <%= @spot.spot_type %>
+</p>
+<p>
+  <strong>Features</strong>
+  <%= @spot.features %>
+</p>
+<p>
+  <strong>Description</strong>
+  <%= @spot.description %>
+</p>
 
+
+<p>
   <%= link_to 'Edit', edit_spot_path(@spot) %>
   <%= link_to 'Back', spots_path %>
 

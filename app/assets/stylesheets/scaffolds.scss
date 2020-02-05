@@ -77,6 +77,12 @@ div {
   display: table;
 }
 
+.container {
+  padding: 4%;
+  border: 2px solid white;
+  border-radius: 15px;
+}
+
 #error_explanation {
   width: 450px;
   border: 2px solid red;
