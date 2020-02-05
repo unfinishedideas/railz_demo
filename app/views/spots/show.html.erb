@@ -17,10 +17,10 @@
   <%= @spot.name %>
 </p>
 
-  <strong>Current Weather Conditions:</strong>
-  <%= @response["weather"][0]["description"].titleize %>,
-  <% temp_c = (((@response["main"]["temp"] - 273.15) * (9/5)) + 32) %>
-  <%= temp_c.round %> °F
+<strong>Current Weather Conditions:</strong>
+<%= @response["weather"][0]["description"].titleize %>,
+<% temp_c = (((@response["main"]["temp"] - 273.15) * (9/5)) + 32) %>
+<%= temp_c.round %> °F
 </p>
 
 <p>
@@ -33,9 +33,13 @@
   <strong>Longitude:</strong>
   <%= @spot.lon %>
 </p>
-  <% if @spot.spot_img.attached? %>
-    <%= image_tag @spot.spot_img %>
-  <% end %>
+<% if @spot.spot_photos.attached? %>
+  <% @spot.spot_photos.each do |photo| %>
+    <%= image_tag(photo)%>
+    <% end %>
+  <% else %>
+  No photos for this spot.
+<% end %>
 
 <%= link_to 'Edit', edit_spot_path(@spot) %>
 <%= link_to 'Back', spots_path %>

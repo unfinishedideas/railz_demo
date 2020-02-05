@@ -1,3 +1,3 @@
 class Spot < ApplicationRecord
-  has_one_attached :spot_img
+  has_many_attached :spot_photos
 end
