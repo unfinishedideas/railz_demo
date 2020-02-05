@@ -1,7 +1,10 @@
 require 'pry'
 
+# NEED TO FIX UPDATE AND CREATE ROUTES! CURRENTLY DOES NOT WORK WITH API. SOMETHING WEIRD WITH PARAMS NOT BEING COLLECTED
+
 class SpotsController < ApplicationController
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
+  before_action :authorize, only: [:index, :show, :edit, :create, :update, :destroy, :new]
 
   # GET /spots
   # GET /spots.json
@@ -57,7 +60,9 @@ class SpotsController < ApplicationController
     # POST /spots.json
     def create
       @spot = Spot.new(spot_params)
-      HTTParty.post("localhost:3000/spots?name='#{@spot.name}'&lat=#{@spot.lat}&lon=#{@spot.lon}&description='#{@spot.description}'&features='#{@spot.features}'&spot_type='#{@spot.type}'&img='#{@spot.img}'")
+      binding.pry
+      # HTTParty.post("https://localhost:3000/spots?name='#{@spot.name}'&lat=#{@spot.lat}&lon=#{@spot.lon}&description='#{@spot.description}'&features='#{@spot.features}'&spot_type='#{@spot.spot_type}'&img='#{@spot.img}'")
+      HTTParty.post("http://localhost:3000/spots?name=#{@spot.name}&lat=#{@spot.lat}&lon=#{@spot.lon}&description=#{@spot.description}&features=#{@spot.features}&spot_type=#{@spot.spot_type}&img=#{@spot.img}")
 
       respond_to do |format|
         if @spot.save
@@ -74,6 +79,7 @@ class SpotsController < ApplicationController
     # PATCH/PUT /spots/1.json
     def update
       respond_to do |format|
+        HTTParty.patch("http://localhost:3000/spots/#{@spot.id}?name=#{@spot.name}&lat=#{@spot.lat}&lon=#{@spot.lon}&description=#{@spot.description}&features=#{@spot.features}&spot_type=#{@spot.spot_type}&img=#{@spot.img}")
         if @spot.update(spot_params)
           format.html { redirect_to @spot, notice: 'Spot was successfully updated.' }
           format.json { render :show, status: :ok, location: @spot }
@@ -103,6 +109,6 @@ class SpotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def spot_params
-      params.require(:spot).permit(:name, :lat, :lon)
+      params.require(:spot).permit(:name, :lat, :lon, :spot_type, :features, :img, :description)
     end
   end
