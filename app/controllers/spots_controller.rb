@@ -40,31 +40,32 @@ class SpotsController < ApplicationController
   # POST /spots
   # POST /spots.json
   def create
-    HTTParty.post("http://localhost:3000/spots?name=#{spot_params[:name]}&lat=#{spot_params[:lat]}&lon=#{spot_params[:lon]}&description=#{spot_params[:description]}&features=#{spot_params[:features]}&spot_type=#{spot_params[:spot_type]}&img=#{spot_params[:img]}")
-    redirect_to spots_path
-    # @spot = Spot.new(spot_params)
-    # respond_to do |format|
-    #   if @spot.save
-    #     format.html { redirect_to @spot, notice: 'Spot was successfully created.' }
-    #     format.json { render :show, status: :created, location: @spot }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @spot.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    spot2 = Spot.order("created_at").last
+    id = (spot2.id.to_i) + 1
+    @spot = Spot.new(spot_params)
+    @spot.id = id
+    respond_to do |format|
+      if @spot.save
+        HTTParty.post("http://localhost:3000/spots?name=#{spot_params[:name]}&lat=#{spot_params[:lat]}&lon=#{spot_params[:lon]}&description=#{spot_params[:description]}&features=#{spot_params[:features]}&spot_type=#{spot_params[:spot_type]}&img=#{spot_params[:img]}")
+        format.html { redirect_to @spot, notice: 'Spot was successfully created.' }
+        format.json { render :show, status: :created, location: @spot }
+      else
+        format.html { render :new }
+        format.json { render json: @spot.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /spots/1
   # PATCH/PUT /spots/1.json
   def update
     respond_to do |format|
-      spot = HTTParty.get("http://localhost:3000/spots/#{params[:id]}" )
-      HTTParty.patch("http://localhost:3000/spots/#{spot.fetch('id')}?name=#{spot_params[:name]}&lat=#{spot_params[:lat]}&lon=#{spot_params[:lon]}&description=#{spot_params[:description]}&features=#{spot_params[:features]}&spot_type=#{spot_params[:spot_type]}&img=#{spot_params[:img]}")
-
+      # spot = HTTParty.get("http://localhost:3000/spots/#{params[:id]}" )
       if @spot.update(spot_params)
+        HTTParty.patch("http://localhost:3000/spots/#{params[:id]}?name=#{spot_params[:name]}&lat=#{spot_params[:lat]}&lon=#{spot_params[:lon]}&description=#{spot_params[:description]}&features=#{spot_params[:features]}&spot_type=#{spot_params[:spot_type]}&img=#{spot_params[:img]}")
+        @spot.spot_photos.attach(params[:spot][:spot_photos])
         format.html { redirect_to @spot, notice: 'Spot was successfully updated.' }
         format.json { render :show, status: :ok, location: @spot }
-        @spot.spot_photos.attach(params[:spot][:spot_photos])
       else
         format.html { render :edit }
         format.json { render json: @spot.errors, status: :unprocessable_entity }
@@ -91,7 +92,7 @@ class SpotsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def spot_params
-    params.require(:spot).permit(:name, :lat, :lon, :spot_type, :features, :img, :description, , spot_photos: [])
+    params.require(:spot).permit(:name, :lat, :lon, :spot_type, :features, :img, :description, spot_photos: [])
   end
 
   def get_spots
