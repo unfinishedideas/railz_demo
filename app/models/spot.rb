@@ -1,4 +1,5 @@
 class Spot < ApplicationRecord
+  has_many_attached :spot_photos
   validates :name, presence: true
   validates :features, presence: true
   validates :spot_type, presence: true

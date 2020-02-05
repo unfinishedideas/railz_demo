@@ -29,6 +29,15 @@
   <strong>Longitude:</strong>
   <%= @spot.lon %>
 </p>
+
+<% if @spot.spot_photos.attached? %>
+  <% @spot.spot_photos.each do |photo| %>
+    <%= image_tag(photo)%>
+    <% end %>
+  <% else %>
+  No photos for this spot.
+<% end %>
+
 <p>
   <strong>Spot Type</strong>
   <%= @spot.spot_type %>
@@ -41,6 +50,7 @@
   <strong>Description</strong>
   <%= @spot.description %>
 </p>
+
 
 
 <p>
