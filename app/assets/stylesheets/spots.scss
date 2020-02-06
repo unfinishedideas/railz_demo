@@ -10,6 +10,7 @@
 #map2 {
     width: 600px;
     height: 400px;
+    float: right;
 }
 #bigMap {
     width: 600px;
@@ -19,4 +20,12 @@
 .basic_map {
   border: 8px rgb(255,50,50) solid;
   border-radius: 20px;
+}
+
+.photos {
+  float: right;
+}
+
+.photo {
+width: 100px;
 }

@@ -19,10 +19,8 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Rating</th>
-      <th>Heat Level</th>
+      <th class="spotHead">Name</th>
+      <th class="spotHead">Type</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -30,11 +28,11 @@
   <tbody>
     <% @spots.each do |spot| %>
       <tr>
-        <td><%= spot.name %></td>
-        <td><%= spot.spot_type %></td>
-        <td><%= link_to 'Show', spot %></td>
-        <td><%= link_to 'Edit', edit_spot_path(spot) %></td>
-        <td><%= link_to 'Destroy', spot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="dTable"><%= spot.name %></td>
+        <td class="dTable"><%= spot.spot_type %></td>
+        <td class="dTable"><%= link_to 'Show', spot %></td>
+        <td class="dTable"><%= link_to 'Edit', edit_spot_path(spot) %></td>
+        <td class="dTable"><%= link_to 'Destroy', spot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
