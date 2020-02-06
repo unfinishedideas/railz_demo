@@ -23,10 +23,25 @@ class SpotsController < ApplicationController
       @avg_rating += review.rating
       heat_levels.push(review.heat_lvl)
     end
-    @avg_rating = @avg_rating / @reviews.length
-    heat_levels.sort!
-    len = heat_levels.length
-    @med_heat = (heat_levels[(len - 1) / 2] + heat_levels[len / 2]) / 2.0
+    if @reviews.length > 0
+      @avg_rating = @avg_rating / @reviews.length
+      heat_levels.sort!
+      len = heat_levels.length
+      @med_heat = (heat_levels[(len - 1) / 2] + heat_levels[len / 2]) / 2.0
+    end
+    heat_img = 'https://www.iconsdb.com/icons/preview/red/handcuffs-xxl.png'
+    rating_img = 'https://lh3.googleusercontent.com/proxy/9-wxcpu48pZbd4f6LMK67Qf7ZSCvM_uIPXR2FoW6HW32wsT0F1R0OVBxax8FmjxNUc_mgH4e4gtAHBMps1cpCXC98ItWjzAArgTzjC5T4Mi_73xCZJbAuyeB4XhD_r__T1gy3vNfDhrbBKiD0Kg'
+    @rating_array = []
+    @heat_array = []
+
+    (@med_heat.round).times do |index|
+      @heat_array.push(heat_img)
+    end
+
+    (@avg_rating.round).times do |index|
+      @rating_array.push(rating_img)
+    end
+
   end
 
   # GET /spots/new
