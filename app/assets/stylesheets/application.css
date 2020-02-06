@@ -21,6 +21,20 @@ body {
 font-family: 'Sedgwick Ave Display', cursive;
 
 }
+.logIn {
+	color: red;
+	text-align: center;
+	font-size: 25px;
+}
+
+.subTitle {
+	margin-top:
+	-2%;
+}
+
+#bigMap {
+	float: right;
+}
 
 #headTitle {
 font-family: 'Sedgwick Ave Display', cursive;
@@ -33,8 +47,6 @@ text-shadow: grey 6px 6px;
 		-6px 6px 0 grey,
 		6px 6px 0 grey;
 }
-
-
 
 #logLabels {
   text-align: center;
@@ -53,7 +65,7 @@ text-shadow: grey 6px 6px;
 }
 
 #yield {
-  margin-top: 5%;
+  margin-top: 2%;
 }
 
 #tagLine {
@@ -67,7 +79,4 @@ text-shadow: grey 6px 6px;
   float: right;
   float: bottom;
   color: red;
-}
-.logIn {
-  background-image: url(https://i.ya-webdesign.com/images/pachuco-drawing-skull-3.png);
 }
