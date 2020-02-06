@@ -1,4 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+<h2><%= @review.title %></h2>
+<p><%= @review.content %></p>
+<h3>Rating: <%= @review.rating %></h3>
+<h3>Heat: <%= @review.heat_lvl %></h3>
+
+<%= link_to 'Edit', edit_spot_review_path %> |
+<%= link_to 'Back', "/spots/#{@spot.id}" %> |
+
+<p>
+  <%=
+  link_to "Delete review", spot_review_path(@spot, @review),
+  :data => {:confirm => "Are you sure?",
+  :method => "delete"}
+  %>
+</p>
