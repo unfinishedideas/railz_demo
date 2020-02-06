@@ -29,12 +29,22 @@
   <strong>Longitude:</strong>
   <%= @spot.lon %>
 </p>
-
 <p>
-  Average rating: <%= @avg_rating %>
+  Average rating:
 </p>
 <p>
-  Median Heat: <%= @med_heat %>
+  <% @rating_array.each do |image| %>
+  <span><img class="skate_icon" src="<%=image%>" alt="star"></span>
+  <% end %>
+</p>
+<br>
+<p>
+  Cop watch:
+</p>
+<p>
+  <% @heat_array.each do |image| %>
+  <span><img class="skate_icon" src="<%=image%>" alt="star"></span>
+  <% end %>
 </p>
 
 <% if @spot.photos.attached? %>
