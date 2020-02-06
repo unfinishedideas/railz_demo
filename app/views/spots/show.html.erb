@@ -34,10 +34,11 @@
   Average rating: <%= @avg_rating %>
 </p>
 
-<% if @spot.spot_photos.attached? %>
-  <% @spot.spot_photos.each do |photo| %>
+<% if @spot.photos.attached? %>
+<% @spot.photos.each do |photo| %>
+
     <%= image_tag(photo)%>
-    <% end %>
+  <% end %>
   <% else %>
   No photos for this spot.
 <% end %>

@@ -1,6 +1,6 @@
 class Spot < ApplicationRecord
-  has_many_attached :spot_photos
-  has_many:reviews, dependent: :destroy
+  has_many_attached :photos
+  has_many :reviews, dependent: :destroy
   validates :name, presence: true
   validates :features, presence: true
   validates :spot_type, presence: true
