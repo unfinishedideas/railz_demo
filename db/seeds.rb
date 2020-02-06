@@ -15,6 +15,7 @@ User.destroy_all
 
 unique = 0
 user_array = []
+spots = []
 
 admin = User.create!(
   :user_name => 'admin',
@@ -22,7 +23,7 @@ admin = User.create!(
   :password => '123',
   :admin => true)
 
-10.times do |index|
+  10.times do |index|
     user = User.create!(
     :user_name => "#{unique}_" + Faker::Superhero.name,
     :email => Faker::Lorem.characters(number: 10, min_alpha: 4) + "@user.com")
@@ -71,3 +72,4 @@ end
 
 p "Created #{Spot.count} spots"
 p "Created #{Review.count} reviews"
+
