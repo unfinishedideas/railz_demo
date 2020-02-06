@@ -4,7 +4,6 @@ class SpotsController < ApplicationController
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
   before_action :authorize, only: [:index, :show, :edit, :create, :update, :destroy, :new]
 
-
   # GET /spots
   # GET /spots.json
   def index
@@ -17,6 +16,15 @@ class SpotsController < ApplicationController
   def show
     @response = HTTParty.get("https://api.openweathermap.org/data/2.5/weather?lat=#{@spot.lat}&lon=#{@spot.lon}&appid=#{Rails.application.credentials.weather_api_key}")
     @reviews = @spot.reviews
+
+    @avg_rating = 0
+    @reviews.each do |review|
+      @avg_rating += review.rating
+    end
+    @avg_rating = @avg_rating / @reviews.length
+
+    @med_heat = 0
+    
   end
 
   # GET /spots/new
