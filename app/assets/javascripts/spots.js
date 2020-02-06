@@ -24,7 +24,6 @@ function initBigMap() {
   var map = new google.maps.Map(document.getElementById('bigMap'), mapOptions);
 
   let spots = spots_list
-
   spots.forEach(function(spot) {
     coords = new google.maps.LatLng(spot.lat, spot.lon);
     var marker = new google.maps.Marker({

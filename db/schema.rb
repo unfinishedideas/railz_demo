@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 2020_02_05_195126) do
     t.string "description"
     t.string "features"
     t.string "spot_type"
-    t.string "img"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -64,6 +63,7 @@ ActiveRecord::Schema.define(version: 2020_02_05_195126) do
     t.string "email"
     t.string "password_hash"
     t.string "password_salt"
+    t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
