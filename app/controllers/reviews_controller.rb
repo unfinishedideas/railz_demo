@@ -84,3 +84,15 @@ class ReviewsController < ApplicationController
       params.require(:review).permit(:title, :content, :rating, :heat_lvl, :user_id, :spot_id)
     end
 end
+
+# avg = 0
+# heat_array = []
+# for each review
+#   heat_array.push(review.heat_level)
+# end
+#
+# heat_array.each do |number|
+#   avg += number
+# end
+#
+# avg = avg/heat_array.len

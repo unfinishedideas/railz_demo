@@ -30,6 +30,10 @@
   <%= @spot.lon %>
 </p>
 
+<p>
+  Average rating: <%= @avg_rating %>
+</p>
+
 <% if @spot.spot_photos.attached? %>
   <% @spot.spot_photos.each do |photo| %>
     <%= image_tag(photo)%>
