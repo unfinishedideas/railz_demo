@@ -5,6 +5,10 @@ body {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  background-image: url(https://i.ya-webdesign.com/images/pachuco-drawing-skull-3.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: bottom;
 }
 
 h1 {
@@ -110,37 +114,4 @@ div {
 
 label {
   display: block;
-}
-
-#logLabels {
-  text-align: center;
-  color: red;
-}
-
-#logTitle {
-  text-align: center;
-  color: white;
-  font-size: 40px;
-  	text-shadow:
-  		-2px -2px 0 grey,
-  		2px -2px 0 grey,
-  		-2px 2px 0 grey,
-  		2px 2px 0 grey;
-}
-
-#yield {
-  margin-top: 25%;
-}
-
-#tagLine {
-  font-size: 25px;
-  text-shadow:
-  -2px -2px 0 white,
-  2px -2px 0 white,
-  -2px 2px 0 grey,
-  2px 2px 0 grey;
-  padding-top: 2%;
-  float: right;
-  float: bottom;
-  color: red;
 }
