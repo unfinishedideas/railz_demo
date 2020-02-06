@@ -49,9 +49,7 @@ class SpotsController < ApplicationController
   def update
     respond_to do |format|
 
-      if @spot.update(spot_params)
-        HTTParty.patch("http://localhost:3000/spots/#{params[:id]}?name=#{spot_params[:name]}&lat=#{spot_params[:lat]}&lon=#{spot_params[:lon]}&description=#{spot_params[:description]}&features=#{spot_params[:features]}&spot_type=#{spot_params[:spot_type]}&img=#{spot_params[:img]}")
-        @spot.spot_photos.attach(params[:spot][:spot_photos])
+      if @spot.update(spot_params)  
         format.html { redirect_to @spot, notice: 'Spot was successfully updated.' }
         format.json { render :show, status: :ok, location: @spot }
       else
