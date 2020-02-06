@@ -30,10 +30,9 @@
   <%= @spot.lon %>
 </p>
 
-<% if @spot.spot_photos.attached? %>
-  <% @spot.spot_photos.each do |photo| %>
-    <%= image_tag(photo)%>
-    <% end %>
+<% if @spot.photo.attached? %>
+
+    <%= image_tag(@spot.photo)%>
   <% else %>
   No photos for this spot.
 <% end %>
