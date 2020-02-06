@@ -52,7 +52,7 @@ class SpotsController < ApplicationController
       if @spot.update(spot_params)
         format.html { redirect_to @spot, notice: 'Spot was successfully updated.' }
         format.json { render :show, status: :ok, location: @spot }
-        @spot.photo.attach(params[:spot][:photo])
+        @spot.photos.attach(params[:spot][:photos])
       else
         format.html { render :edit }
         format.json { render json: @spot.errors, status: :unprocessable_entity }
@@ -78,7 +78,7 @@ class SpotsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def spot_params
-    params.require(:spot).permit(:name, :lat, :lon, :spot_type, :features, :description, :photo)
+    params.require(:spot).permit(:name, :lat, :lon, :spot_type, :features, :description, photo: [])
   end
 
 
