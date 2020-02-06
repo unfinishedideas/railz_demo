@@ -1,17 +1,17 @@
-<%= form_with(model: review, local: true) do |form| %>
-  <% if review.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
-
-      <ul>
-      <% review.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<%= form_for [@spot, @review] do |f| %>
+<%= f.hidden_field :user_id, :value => @user.id %>
+<br>
+<%= f.label "title" %>
+<%= f.text_field :title %>
+<br>
+<%= f.label "Content" %>
+<%= f.text_area :content %>
+<br>
+<%= f.label "Rating" %>
+<%= f.text_area :rating %>
+<br>
+<%= f.label "Heat Level" %>
+<%= f.text_area :heat_lvl %>
+<hr>
+<p><%= f.submit %></p>
 <% end %>

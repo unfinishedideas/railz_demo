@@ -36,10 +36,6 @@
 </div>
 
 <div class="field">
-  <%= form.label :spot_photos %>
-  <%= form.file_field :spot_photos %>
-</div>
-
   <%= form.label :spot_type %>
   <%= form.text_field :spot_type %>
 </div>
@@ -54,6 +50,10 @@
   <%= form.text_field :features %>
 </div>
 
+<div class="field">
+  <%= form.label :photos %>
+  <%= form.file_field :photos %>
+</div>
 
 <p>
   <div class="basic_map" id="map2"></div>
