@@ -16,3 +16,21 @@
 /* body {
   background-color: black;
 } */
+
+body {
+font-family: 'Sedgwick Ave Display', cursive;
+
+}
+
+#title {
+font-family: 'Sedgwick Ave Display', cursive;
+text-emphasis-color: red;
+font-size: 200px;
+text-shadow: grey 6px 6px;
+	text-shadow:
+		-6px -6px 0 grey,
+		6px -6px 0 grey,
+		-6px 6px 0 grey,
+		6px 6px 0 grey;
+}
+}

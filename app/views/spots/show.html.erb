@@ -62,9 +62,9 @@
   <ul>
     <% @reviews.each do |review| %>
     <li>
-      <h4><%= review.fetch("title") %></h4>
-      <h5>Heat level: <%= review.fetch("heat_lvl") %></h5>
-      <p><%= review.fetch("content") %></p>
+      <h4><%= review.title %></h4>
+      <h5>Heat level: <%= review.heat_lvl %></h5>
+      <p><%= review.content %></p>
     </li>
     <% end %>
   </ul>

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  resources :reviews
+
   post 'user_token' => 'user_token#create'
   post 'super_user_token' => 'super_user_token#create'
   post 'admin_token' => 'admin_token#create'

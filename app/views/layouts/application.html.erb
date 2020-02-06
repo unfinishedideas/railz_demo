@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Railz</title>
+  <title >Railz</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-
   <%= stylesheet_link_tag 'application',
-  'https://fonts.googleapis.com/css?family=Indie+Flower|Permanent+Marker|Righteous|Shadows+Into+Light|Tajawal&display=swap',
+  'https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display&display=swap',
+  # 'https://fonts.googleapis.com/css?family=Indie+Flower|Permanent+Marker|Righteous|Shadows+Into+Light|Tajawal&display=swap',
   media: 'all', 'data-turbolinks-track' => true %>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -20,7 +20,7 @@
     <a href="/users/login">Login</a>
     <a href="/users/signup">Signup</a>
   </p> -->
-  <a href="/">Home</a>
+  <a href="/spots">Home</a>
 
   <% if current_user %>
     <%= current_user.email %> | <%= link_to "Sign out", '/signout' %>
@@ -30,10 +30,10 @@
 
   <%= flash[:alert] %>
   <%= flash[:notice] %>
-  
+
   <div class="titleBanner">
-    <h1>Railz</h1>
-    <h3>Killer Sk8 Spotz</h3>
+    <h1 id ="title">"Railz" <span id='tagLine'>skate or die</span> </h1>
+
   </div>
   <!-- <div class="login">
     <form action="/spots" method="post">
@@ -44,7 +44,7 @@
       <button type="submit" name="button">Submit</button>
     </form>
   </div> -->
-  <div class="container">
+  <div id="yield" class="container">
     <%= yield %>
   </div>
 </body>

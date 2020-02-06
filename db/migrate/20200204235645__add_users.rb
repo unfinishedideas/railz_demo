@@ -5,6 +5,7 @@ class AddUsers < ActiveRecord::Migration[5.0]
       t.column :email, :string
       t.column :password_hash, :string
       t.column :password_salt, :string
+      t.column :admin, :boolean, default: false
       t.timestamps
     end
   end
