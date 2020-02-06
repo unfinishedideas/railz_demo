@@ -9,7 +9,21 @@
 <% end %>
 
 
+
 <p id="notice"><%= notice %></p>
+
+<div class="photos">
+
+<% if @spot.photos.attached? %>
+<% @spot.photos.each do |photo| %>
+
+    <span class="photo"><%= image_tag(photo)%></span>
+  <% end %>
+  <% else %>
+  No photos for this spot.
+<% end %>
+</div>
+
 
 <h1><%= @spot.name %></h1>
 
@@ -47,14 +61,7 @@
   <% end %>
 </p>
 
-<% if @spot.photos.attached? %>
-<% @spot.photos.each do |photo| %>
 
-    <%= image_tag(photo)%>
-  <% end %>
-  <% else %>
-  No photos for this spot.
-<% end %>
 
 <p>
   <strong>Spot Type</strong>

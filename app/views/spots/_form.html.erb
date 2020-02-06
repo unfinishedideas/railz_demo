@@ -20,6 +20,10 @@
 </div>
 <% end %>
 
+<p>
+  <div class="basic_map" id="map2"></div>
+</p>
+
 <div class="field">
   <%= form.label :name %>
   <%= form.text_field :name %>
@@ -55,11 +59,9 @@
   <%= form.file_field :photos %>
 </div>
 
-<p>
-  <div class="basic_map" id="map2"></div>
-</p>
+
 
 <div class="actions">
-  <%= form.submit %>
+  <button class="sButton" type="submit" name="button">Create Spot!</button>
 </div>
 <% end %>

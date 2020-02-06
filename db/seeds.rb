@@ -36,8 +36,8 @@ admin = User.create!(
     14.times do |index|
       spots = []
       spots.push(Spot.create!(name: Faker::Verb.unique.base.capitalize() + " Park",
-      lat: 45.5+(rand(9999)/100000),
-      lon: 122.6+(rand(9999)/100000),
+      lat: (45.5+(rand(0..14))),
+      lon: (-122.6+(rand(0..14))),
       description: Faker::Space.distance_measurement + " from " +     Faker::Verb.unique.base.capitalize() + " Park",
       features: Faker::Construction.material + " " +   Faker::Appliance.equipment,
       spot_type: Faker::Movies::HitchhikersGuideToTheGalaxy.starship

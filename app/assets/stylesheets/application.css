@@ -16,6 +16,10 @@
 /* body {
   background-color: black;
 } */
+/*
+font-family: 'Sedgwick Ave', cursive; */
+
+
 
 body {
 font-family: 'Sedgwick Ave Display', cursive;
@@ -26,10 +30,27 @@ font-family: 'Sedgwick Ave Display', cursive;
 	text-align: center;
 	font-size: 25px;
 }
+.sButton {
+	height: 30px;
+	color: red;
+	background-color: darkgreen;
+	border-radius: 5px;
+	font-family: 'Sedgwick Ave', cursive;
+	font-size: 20px;
+}
+
+.spotHead {
+	font-size: 35px;
+	padding-bottom: 22px;
+}
 
 .subTitle {
 	margin-top:
 	-2%;
+}
+.dTable {
+	font-family: 'Sedgwick Ave', cursive;
+	font-size: 18px;
 }
 
 #bigMap {
