@@ -15,6 +15,7 @@ User.destroy_all
 
 unique = 0
 user_array = []
+spots = []
 
 admin = User.create!(
   :user_name => 'admin',
@@ -22,38 +23,37 @@ admin = User.create!(
   :password => '123',
   :admin => true)
 
-10.times do |index|
+  10.times do |index|
     user = User.create!(
-    :user_name => "#{unique}_" + Faker::Superhero.name,
-    :email => Faker::Lorem.characters(number: 10, min_alpha: 4) + "@user.com")
-    unique += 1
-    user_array.push(user)
-  end
+      :user_name => "#{unique}_" + Faker::Superhero.name,
+      :email => Faker::Lorem.characters(number: 10, min_alpha: 4) + "@user.com")
+      unique += 1
+      user_array.push(user)
+    end
 
-  p "Created #{User.count} users"
+    p "Created #{User.count} users"
 
-15.times do |index|
-  spots = []
-  spots.push(Spot.create!( name: Faker::Verb.unique.base.capitalize() + " Park",
-    lat: Faker::Address.latitude,
-    lon: Faker::Address.longitude,
-    description: Faker::Space.distance_measurement + " from " +     Faker::Verb.unique.base.capitalize() + " Park",
-    features: Faker::Construction.material + " " +   Faker::Appliance.equipment,
-    spot_type: Faker::Movies::HitchhikersGuideToTheGalaxy.starship
+    15.times do |index|
+      spots.push(Spot.create!( name: Faker::Verb.unique.base.capitalize() + " Park",
+      lat: Faker::Address.latitude,
+      lon: Faker::Address.longitude,
+      description: Faker::Space.distance_measurement + " from " +     Faker::Verb.unique.base.capitalize() + " Park",
+      features: Faker::Construction.material + " " +   Faker::Appliance.equipment,
+      spot_type: Faker::Movies::HitchhikersGuideToTheGalaxy.starship
       ))
-  spots
+      spots
+    end
 
+    30.times do |index|
+      Review.create!(
+        :title => Faker::Superhero.name,
+        :content => Faker::Movies::Lebowski.quote,
+        :user_id => user_array.sample.id,
+        :rating => rand(1..5),
+        :heat_lvl => rand(1..5),
+        :spot_id => spots.sample.id
+      )
+    end
 
-  Review.create!(
-    :title => Faker::Superhero.name,
-    :content => Faker::Movies::Lebowski.quote,
-    :user_id => user_array.sample.id,
-    :rating => rand(1..5),
-    :heat_lvl => rand(1..5),
-    :spot_id => spots.sample.id
-    )
-
-end
-
-p "Created #{Spot.count} spots"
-p "Created #{Review.count} reviews"
+    p "Created #{Spot.count} spots"
+    p "Created #{Review.count} reviews"

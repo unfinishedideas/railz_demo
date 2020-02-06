@@ -33,6 +33,9 @@
 <p>
   Average rating: <%= @avg_rating %>
 </p>
+<p>
+  Median Heat: <%= @med_heat %>
+</p>
 
 <% if @spot.photos.attached? %>
 <% @spot.photos.each do |photo| %>
