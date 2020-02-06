@@ -18,13 +18,15 @@ class SpotsController < ApplicationController
     @reviews = @spot.reviews
 
     @avg_rating = 0
+    heat_levels = []
     @reviews.each do |review|
       @avg_rating += review.rating
+      heat_levels.push(review.heat_lvl)
     end
     @avg_rating = @avg_rating / @reviews.length
-
-    @med_heat = 0
-    
+    heat_levels.sort!
+    len = heat_levels.length
+    @med_heat = (heat_levels[(len - 1) / 2] + heat_levels[len / 2]) / 2.0
   end
 
   # GET /spots/new
@@ -60,7 +62,9 @@ class SpotsController < ApplicationController
       if @spot.update(spot_params)
         format.html { redirect_to @spot, notice: 'Spot was successfully updated.' }
         format.json { render :show, status: :ok, location: @spot }
-        @spot.photos.attach(params[:spot][:photos])
+        if params[:spot][:photos]
+          @spot.photos.attach(params[:spot][:photos])
+        end
       else
         format.html { render :edit }
         format.json { render json: @spot.errors, status: :unprocessable_entity }
