@@ -55,6 +55,7 @@
 
 <p>
   <%= link_to 'Edit', edit_spot_path(@spot) %>
+  <%= link_to 'Add review', new_spot_review_path(@spot) %>
   <%= link_to 'Back', spots_path %>
 
   <% if @reviews.any? %>
@@ -62,7 +63,8 @@
   <ul>
     <% @reviews.each do |review| %>
     <li>
-      <h4><%= review.title %></h4>
+      <a href="/spots/<%= @spot.id %>/reviews/<%= review.id %>"><%= review.title %></a>
+      <h5>Rating: <%= review.rating %></h5>
       <h5>Heat level: <%= review.heat_lvl %></h5>
       <p><%= review.content %></p>
     </li>

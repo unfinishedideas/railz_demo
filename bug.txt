@@ -1,0 +1,11 @@
+This park broke big map
+
+id: 16
+name: NEW SPOT
+lat: -18.565847
+lon: -56.265137
+description: it's guuud
+features: post
+spot_type: Parky park
+created_at: 2020-02-06 17:03:45.356262
+updated_at: 2020-02-06 17:07:26.96522
