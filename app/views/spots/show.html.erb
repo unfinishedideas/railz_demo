@@ -8,16 +8,18 @@
 </script>
 <% end %>
 
-
-
 <p id="notice"><%= notice %></p>
+<h1><%= @spot.name %></h1>
+<strong>Current Weather Conditions:</strong>
+<%= @response["weather"][0]["description"].titleize %>,
+<% temp_c = (((@response["main"]["temp"] - 273.15) * (9/5)) + 32) %>
+<%= temp_c.round %> °F
 
-<div class="photos">
 
+<div class="photo_box">
 <% if @spot.photos.attached? %>
 <% @spot.photos.each do |photo| %>
-
-    <span class="photo"><%= image_tag(photo)%></span>
+    <span><%= image_tag(photo, :class => "photo") %></span>
   <% end %>
   <% else %>
   No photos for this spot.
@@ -25,13 +27,24 @@
 </div>
 
 
-<h1><%= @spot.name %></h1>
+<div class="review_box">
+  <% if @reviews.any? %>
+  <h3>Reviews</h3>
+  <ul>
+    <% @reviews.each do |review| %>
+    <li>
+      <a href="/spots/<%= @spot.id %>/reviews/<%= review.id %>"><%= review.title %></a>
+      <h5>Rating: <%= review.rating %></h5>
+      <h5>Heat level: <%= review.heat_lvl %></h5>
+      <p><%= review.content %></p>
+    </li>
+    <% end %>
+  </ul>
+  <% else %>
+  <h3>No reviews!</h3>
+  <% end %>
+</div>
 
-<strong>Current Weather Conditions:</strong>
-<%= @response["weather"][0]["description"].titleize %>,
-<% temp_c = (((@response["main"]["temp"] - 273.15) * (9/5)) + 32) %>
-<%= temp_c.round %> °F
-</p>
 
 <p>
   <div class="basic_map" id="map"></div>
@@ -82,19 +95,3 @@
   <%= link_to 'Edit', edit_spot_path(@spot) %>
   <%= link_to 'Add review', new_spot_review_path(@spot) %>
   <%= link_to 'Back', spots_path %>
-
-  <% if @reviews.any? %>
-  <h3>Reviews</h3>
-  <ul>
-    <% @reviews.each do |review| %>
-    <li>
-      <a href="/spots/<%= @spot.id %>/reviews/<%= review.id %>"><%= review.title %></a>
-      <h5>Rating: <%= review.rating %></h5>
-      <h5>Heat level: <%= review.heat_lvl %></h5>
-      <p><%= review.content %></p>
-    </li>
-    <% end %>
-  </ul>
-  <% else %>
-  <h3>No reviews!</h3>
-  <% end %>
