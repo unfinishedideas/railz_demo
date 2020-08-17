@@ -13,6 +13,9 @@ _This application stores data on skate spots. It allows the user to view, create
 
 _https://github.com/3t8U/railz_demo_
 
+## Deployment
+You can find the app deployed on heroku [HERE](https://github.com/TheAlgorithms/Javascript.git)
+
 ## Specs
 
 * _The application allows the user to locate, create, rate, review & update skate spots anywhere in the world_
